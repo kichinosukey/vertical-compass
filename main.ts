@@ -18,7 +18,7 @@ namespace VerticalCompass {
         return dir
     }
 
-    function getVAngle(magX: number, magZ: number): number {
+    export function getVAngle(magX: number, magZ: number): number {
         let angle2 = Math.atan2(magZ, magX) * 180 / Math.PI
         if (angle2 < 0) {
             angle2 += 360
