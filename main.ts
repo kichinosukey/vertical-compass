@@ -6,10 +6,7 @@
 
 //% weight=100 color=#0fbc11 icon="🧭"
 namespace VerticalCompass {
-    /**
-     * XとZの地磁気から方角（0:東, 1:北, 2:西, 3:南）を返す
-     */
-    //% block
+
     function getDirection(magX: number, magZ: number): number {
         let angle = getVAngle(magX, magZ)
         let dir = 0
@@ -25,10 +22,6 @@ namespace VerticalCompass {
         return dir
     }
 
-    /**
-     * XとZの地磁気から角度（0〜359度）を返す
-     */
-    //% block
     function getVAngle(magX: number, magZ: number): number {
         let angle = Math.atan2(magZ, magX) * 180 / Math.PI
         if (angle < 0) {
@@ -37,7 +30,11 @@ namespace VerticalCompass {
         return Math.round(angle)
     }
 
-    // 北基準(N=0°, CW)の角度から方角を表示
+    /**
+     * 角度から方角を返す
+     * microbitを垂直にしたとき、LED面を北判定させたい
+     */
+    //% block
     export function showCardinal(deg: number) {
         let letter = ''
         if (deg >= 0 && deg < 23 || deg >= 338 && deg < 360) {
@@ -64,6 +61,10 @@ namespace VerticalCompass {
         return (90 - a + 360) % 360
     }
 
+    /**
+     * X/Y/Zいずれか2軸の地磁気から角度（0〜359度）を返す
+     */
+    //% block
     export function mag2Angle(mag01: number, mag02: number) {
         let angle = Math.atan2(input.magneticForce(Dimension.Z), input.magneticForce(Dimension.X)) * 180 / Math.PI
         if (angle < 0) {
