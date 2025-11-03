@@ -12,13 +12,13 @@ namespace VerticalCompass {
     //% block
     export function showCardinal(deg: number) {
         let letter = ''
-        if ((deg >= 345 && deg < 360) || (deg >= 0 && deg < 15)) {
+        if ((deg >= 350 && deg < 360) || (deg >= 0 && deg < 10)) {
             letter = "S"
-        } else if (deg >= 75 && deg < 105) {
+        } else if (deg >= 80 && deg < 100) {
             letter = "W"
-        } else if (deg >= 165 && deg < 195) {
+        } else if (deg >= 170 && deg < 190) {
             letter = "N"
-        } else if (deg >= 255 && deg < 285) {
+        } else if (deg >= 260 && deg < 280) {
             letter = "E"
         } else {
             letter = "?"
