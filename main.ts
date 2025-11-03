@@ -12,19 +12,20 @@ namespace VerticalCompass {
     //% block
     export function showCardinal(deg: number) {
         let letter = ''
-        if (deg >= 0 && deg < 23 || deg >= 338 && deg < 360) {
+        if ((deg >= 345 && deg < 360) || (deg >= 0 && deg < 15)) {
             letter = "S"
-        } else if (deg >= 67 && deg < 113) {
+        } else if (deg >= 75 && deg < 105) {
             letter = "W"
-        } else if (deg >= 157 && deg < 203) {
+        } else if (deg >= 165 && deg < 195) {
             letter = "N"
-        } else if (deg >= 247 && deg < 292) {
+        } else if (deg >= 255 && deg < 285) {
             letter = "E"
         } else {
             letter = "?"
         }
         return letter
     }
+
 
     // E=0°, CCW → N=0°, CW へ
     function toCompassLikeWithSense(a: number) {
