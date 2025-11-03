@@ -4,7 +4,8 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "maqueen": "github:dfrobot/pxt-maqueen#v1.7.16"
     },
     "files": [
         "main.blocks",
@@ -15,7 +16,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "8.0.15",
+        "target": "8.0.18",
         "targetId": "microbit"
     },
     "supportedTargets": [

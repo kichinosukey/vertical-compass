@@ -2,37 +2,12 @@
  * 垂直に持ったmicro:bitで方角を判定する拡張
  */
 
-
-
 //% weight=100 color=#0fbc11 icon="🧭"
 namespace VerticalCompass {
 
-    function getDirection(magX: number, magZ: number): number {
-        let angle = getVAngle(magX, magZ)
-        let dir = 0
-        if (angle < 45 || angle >= 315) {
-            dir = 0
-        } else if (angle < 135) {
-            dir = 1
-        } else if (angle < 225) {
-            dir = 2
-        } else {
-            dir = 3
-        }
-        return dir
-    }
-
-    function getVAngle(magX: number, magZ: number): number {
-        let angle = Math.atan2(magZ, magX) * 180 / Math.PI
-        if (angle < 0) {
-            angle += 360
-        }
-        return Math.round(angle)
-    }
-
     /**
      * 角度から方角を返す
-     * microbitを垂直にしたとき、LED面を北判定させたい
+     * microbitを垂直にした（micro maqueenに設置した）とき、microbitのLED面の方角を判定させる
      */
     //% block
     export function showCardinal(deg: number) {
@@ -48,7 +23,6 @@ namespace VerticalCompass {
         } else {
             letter = "?"
         }
-        basic.showString(letter)
         return letter
     }
 
